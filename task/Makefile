@@ -11,7 +11,7 @@ all: task
 
 .PHONY: clean
 clean:
-	rm -rf a.out *.o task
+	rm -rf a.out *.o task output.txt
 
 .PHONY: Makefile
 
