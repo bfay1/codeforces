@@ -2,12 +2,7 @@
 using namespace std;
 #define int long long
 
-void solve() {
-	
-}
-
 signed main() {
-    int t; cin >> t;
-    while (t--) solve();
-    return 0;
+
+	return 0;
 }
