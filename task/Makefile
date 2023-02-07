@@ -1,5 +1,5 @@
 CXX=         g++
-CXXFLAGS=    -g -Wall -Werror -Wpedantic -std=c++17
+CXXFLAGS=    -g -Wall -Werror -Wpedantic -std=c++20
 
 default: clean all
 
