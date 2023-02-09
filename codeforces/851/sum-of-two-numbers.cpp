@@ -21,21 +21,25 @@ using namespace std;
 #define int long long
 
 void solve() {
-	int n; cin >> n;
-	
-	if (n & 1) {
-		cout << "YES\n";
-		cout << 1 << " " 2*n << "\n";
-
-		int s = 2, e = 2*n - 2;
-
-		for (int i = 0; i < n / 2; i++) {
-			cout << s << " " << e << "\n";
-			
+	string n; cin >> n;
+	int x = 0, y = 0;
+	bool give_to_x = true;
+	for (auto c : n) {
+		x *= 10;
+		y *= 10;
+		int a = c - '0';
+		x += a / 2;
+		y += a / 2;
+		if (a & 1) {
+			if (give_to_x) {
+				x++;
+				give_to_x = false;
+			} else {
+				y++;
+			}
 		}
 	}
-
-	return;
+	cout << x << " " << y << "\n";
 }
 
 signed main()

@@ -7,7 +7,7 @@ task:
 
 .PHONY: all
 all: task
-	cat input.txt | ./task > output.txt && cat output.txt
+	cat input.txt | ./task
 
 .PHONY: clean
 clean:

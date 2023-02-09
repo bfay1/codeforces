@@ -22,20 +22,25 @@ using namespace std;
 
 void solve() {
 	int n; cin >> n;
-	
-	if (n & 1) {
-		cout << "YES\n";
-		cout << 1 << " " 2*n << "\n";
-
-		int s = 2, e = 2*n - 2;
-
-		for (int i = 0; i < n / 2; i++) {
-			cout << s << " " << e << "\n";
-			
+	int two_ct = 0;
+	vector<int> a(n);
+	for (int i = 0; i < n; i++) {
+		cin >> a[i];
+		if (a[i] == 2) two_ct++;
+	}
+	if (two_ct & 1) {
+		cout << -1 << "\n";
+		return;
+	} else {
+		int two_ct_2 = 0;
+		for (int i = 0; i < n; i++) {
+			if (a[i] == 2) two_ct_2++;
+			if (two_ct_2 == two_ct / 2) {
+				cout << i + 1 << "\n";
+				return;
+			}
 		}
 	}
-
-	return;
 }
 
 signed main()
