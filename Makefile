@@ -9,4 +9,8 @@ PHONY += clean
 clean:
 	rm -rf task *.o a.out
 	
+PHONY += run
+run:
+	cat input.txt | ./task
+	
 .PHONY: $(PHONY)
