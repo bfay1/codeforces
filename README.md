@@ -1,2 +1,2 @@
 My competitive programming solutions
-I really such at this
+I really suck at this
