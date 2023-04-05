@@ -2,7 +2,7 @@ task.cpp
 Makefile
 book.pdf
 task
-usaco/skidesign.cpp
-usaco/skidesign.in
-usaco/skidesign.out
+skidesign.cpp
+skidesign.in
+skidesign.out
 
