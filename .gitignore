@@ -5,4 +5,4 @@ task
 skidesign.cpp
 skidesign.in
 skidesign.out
-
+error.log
