@@ -8,15 +8,17 @@ void solve()
     cin >> n;
     int mn = INT_MAX;
     int mx = INT_MIN;
-    vector<int> a(n);
-
-    for (auto& x : a) {
+    while (n--) {
+	int x;
 	cin >> x;
 	mn = min(mn, x);
 	mx = max(mx, x);
     }
 
-    cout << (mn ? mn : mx) << "\n";
+    if (mn < 0)
+	cout << mn << "\n";
+    else
+	cout << mx << "\n";
 }
 
 signed main()
