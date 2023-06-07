@@ -1,22 +1,24 @@
 #include <bits/stdc++.h>
-using namespace std;
-#define int long long
 
-#define MOD 1000000007
-#define MAXN 1000000
+const long long mod = 1e9 + 7;
 
-int dp[MAXN + 1];
+long long dp[1000005];
 
-signed main()
+int main()
 {
-	int n;
-	cin >> n;
-	dp[1] = 1;
-	for (int i = 2; i <= 6; i++)
-		dp[i] = dp[i - 1] * 2;
-	
-	for (int i = 7; i <= n; i++)
-		dp[i] = accumulate(dp + i - 6, dp + i, 0LL) % MOD;
-	
-	cout << dp[n] % MOD << "\n";
-}			
+    long long n;
+    std::cin >> n;
+
+    for (long long i = 1; i <= 6; i++) {
+	dp[i] = (1 << (i - 1));
+    }
+
+    for (long long i = 7; i <= n; i++) {
+	for (long long j = 1; j <= 6; j++) {
+	    dp[i] += dp[i - j];
+	    dp[i] %= mod;
+	}
+    }
+
+    std::cout << dp[n] << "\n";
+}
