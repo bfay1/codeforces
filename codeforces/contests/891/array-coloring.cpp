@@ -4,16 +4,18 @@ using namespace std;
 
 void solve()
 {
-    int n, ans = 0;
+    int n, sum = 0;
     cin >> n;
-    vector<int> a(n);
-    for (auto& x : a)
+    for (int i = 1; i <= n; i++) {
+	int x;
 	cin >> x;
-    for (int i = 0; i < n - 1; i++) {
-	if (a[i + 1] < a[i])
-	    ans = max(ans, a[i]);
+	sum += x;
     }
-    cout << ans << "\n";
+    if (sum % 2 == 0) {
+	cout << "YES\n";
+    } else {
+	cout << "NO\n";
+    }
 }
 
 signed main()
