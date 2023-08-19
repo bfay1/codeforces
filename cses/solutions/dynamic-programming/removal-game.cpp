@@ -1,46 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define int long long
- 
-#define MAXN 5005
- 
-int dp[MAXN][MAXN];
-int coins[MAXN];
-int prefix[MAXN];
- 
-signed main()
+
+int main()
 {
-	int n;
-	cin >> n;
+    int n;
+    long long sum = 0;
+    cin >> n;
+    vector<long long> a(n);
+    vector<vector<long long>> dp(n, vector<long long>(n));
+    for (auto& x : a) {
+        cin >> x;
+        sum += x;
+    }
 
-	for (int i = 0; i < n; i++) {
-		cin >> coins[i];
-		prefix[i + 1] = prefix[i] + coins[i];
-	}
+    for (int i = 0; i < n; i++)
+        dp[i][i] = a[i];
 
-	function <int(int, int)> sum = [&] (int l, int r) {
-		return prefix[r + 1] - prefix[l - 1];
-	};
- 
-	for (int i = 0; i < n; i++)
-		dp[i][i] = coins[i];
- 
-	for (int k = 1; k < n; k++) {
-		for (int i = 0; i < n - k; i++) {
-			dp[i][i + k] = sum(i, i + k)
-						 - min(dp[i + 1][i + k], dp[i][i + k - 1]);
-		}
-	}
- 
-	cout << dp[0][n - 1] << "\n";
- 
+    for (int l = n - 1; l >= 0; l--) {
+        for (int r = l; r < n; r++) {
+            if (l == r)
+                dp[l][r] = a[l];
+            else
+                dp[l][r] = max(a[l] - dp[l + 1][r], a[r] - dp[l][r - 1]);
+        }
+    }
+
+    cout << (sum + dp[0][n - 1]) / 2 << "\n";
 }
-
-
-
-
-
-
-
-
-
