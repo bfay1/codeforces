@@ -3,15 +3,13 @@ using namespace std;
 
 int main()
 {
-	ifstream fin("knapsack.in");
-	ofstream fout("knapsack.out");
-
-	int n, s;
-	fin >> s >> n;
+    cin.tie(nullptr)->sync_with_stdio(false);
+    int n, s;
+	cin >> s >> n;
 
 	vector<int> w(n), dp(s + 1);
 	for (auto& item : w) {
-		fin >> item;
+		cin >> item;
 	}
 
 	for (const auto& weight : w) {
@@ -22,5 +20,5 @@ int main()
 		}
 	}
 
-	fout << dp[s];
+	cout << dp[s];
 }
