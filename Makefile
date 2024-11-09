@@ -41,7 +41,7 @@ test: $(EXEC)
 	fi
 
 clean:
-	rm -f $(EXEC)
+	rm -rf $(EXEC) *.dSYM
 
 # Create new solution file if it doesn't exist
 init:

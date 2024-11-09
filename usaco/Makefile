@@ -1,6 +1,6 @@
 # Compiler settings
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -Wshadow -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
+CXXFLAGS = -std=c++20 -Wall -Wextra -Wshadow -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
 # DEBUG_FLAGS = -g -fsanitize=address,undefined -D_FORTIFY_SOURCE=2
 DEBUG_FLAGS = -g -D_FORTIFY_SOURCE=2
 RELEASE_FLAGS = -O2
