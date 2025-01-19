@@ -1,8 +1,8 @@
 # Compiler settings
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -Wshadow -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
+CXXFLAGS = -std=c++20 -Wall -Wextra -Wshadow -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
 # DEBUG_FLAGS = -g -fsanitize=address,undefined -D_FORTIFY_SOURCE=2
-DEBUG_FLAGS = -g -D_FORTIFY_SOURCE=2
+DEBUG_FLAGS = -D_FORTIFY_SOURCE=2
 RELEASE_FLAGS = -O2
 
 # File names
@@ -48,16 +48,22 @@ init:
 	@if [ ! -f $(SRC) ]; then \
 		echo '#include <bits/stdc++.h>' > $(SRC); \
 		echo 'using namespace std;' >> $(SRC); \
+		echo '#define watch(x) cerr << (#x) << " = " << (x) << ","' >> $(SRC); \
+		echo '#define watchln(x) cerr << (#x) << " = " << (x) << "\n"' >> $(SRC); \
+		echo 'using ll = long long;' >> $(SRC); \
 		echo '' >> $(SRC); \
-		echo 'void solve() {' >> $(SRC); \
+		echo 'void solve()' >> $(SRC); \
+		echo '{' >> $(SRC); \
 		echo '    ' >> $(SRC); \
 		echo '}' >> $(SRC); \
 		echo '' >> $(SRC); \
-		echo 'int main() {' >> $(SRC); \
+		echo 'int main()' >> $(SRC); \
+		echo '{' >> $(SRC); \
 		echo '    cin.tie(nullptr)->sync_with_stdio(false);' >> $(SRC); \
 		echo '    int t;' >> $(SRC); \
 		echo '    cin >> t;' >> $(SRC); \
-		echo '    while (t--) solve();' >> $(SRC); \
+		echo '    while (t--)' >> $(SRC); \
+		echo '    	solve();' >> $(SRC); \
 		echo '    return 0;' >> $(SRC); \
 		echo '}' >> $(SRC); \
 		echo "Created new $(SRC) with template"; \
